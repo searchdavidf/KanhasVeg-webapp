@@ -10,6 +10,7 @@ import { createClient } from '@/lib/supabase/client'
 
 interface MenuItem {
   id: string
+  category_id: string
   name: string
   description: string | null
   price: number
@@ -282,7 +283,7 @@ export default function MenuPage() {
                         </button>
                         <span className="w-5 text-center font-bold text-sm">{item.qty}</span>
                         <button
-                          onClick={() => addToCart(item as MenuItem)}
+                          onClick={() => addToCart(item as unknown as MenuItem)}
                           className="w-7 h-7 rounded-full bg-primary flex items-center justify-center"
                         >
                           <Plus className="w-3 h-3 text-background" />

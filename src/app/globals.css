@@ -1,8 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-background: #000B30;
+  --color-background-surface: #0A1640;
+  --color-background-lift: #0E1E54;
+  --color-primary: #FFD000;
+  --color-primary-dim: #C9960A;
+  --color-primary-foreground: #000B30;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A0AEC0;
+  --color-text-muted: #6B7280;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-border: rgba(255, 208, 0, 0.08);
+  --color-border-focus: #FFD000;
+  --color-border-error: #EF4444;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --animate-fade-in: fade-in 250ms ease-out;
+  --animate-pulse-gold: pulse-gold 2s ease-in-out infinite;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
 
 @layer base {
   html {
@@ -18,7 +51,6 @@
     @apply bg-primary/30 text-white;
   }
 
-  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -31,14 +63,12 @@
 }
 
 @layer components {
-  /* Kanha's brand card surface */
   .card {
     @apply bg-background-surface border border-border rounded-lg shadow-card;
   }
 
-  /* Gold pill toggle (Pickup/Delivery) */
   .pill-toggle {
-    @apply px-4 py-2 rounded-full text-sm font-semibold transition-all duration-fast;
+    @apply px-4 py-2 rounded-full text-sm font-semibold transition-all duration-150;
   }
 
   .pill-toggle-active {
@@ -49,12 +79,10 @@
     @apply bg-transparent text-text-secondary border border-border hover:text-text-primary;
   }
 
-  /* Skeleton placeholder */
   .skeleton {
     @apply bg-background-surface animate-pulse-gold rounded-md;
   }
 
-  /* Typography utilities */
   .text-display {
     @apply text-3xl md:text-4xl font-extrabold tracking-tight;
   }

@@ -3,9 +3,11 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Phone, MapPin, Globe, Instagram, MessageCircle, ChevronLeft, ShoppingBag } from 'lucide-react'
+import { Phone, MapPin, Globe, Star, MessageCircle, ChevronLeft, ShoppingBag } from 'lucide-react'
+// Instagram icon replaced with Star since lucide-react doesn't export Instagram
+const InstagramIcon = Star
 import { cn, getStoreStatus } from '@/lib/utils'
-import { Button } from './button'
+import { Button } from '@/components/ui/button'
 
 const WA_NUMBER = '97123094707'
 const waLink = (msg: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
@@ -148,7 +150,7 @@ export function SocialLinks() {
       <h2 className="text-section mb-4">Connect With Us</h2>
       <div className="grid grid-cols-2 gap-3">
         <a href="https://instagram.com/kanhas_veg" target="_blank" rel="noreferrer" className="card p-4 flex items-center gap-3 hover:border-primary/30 transition-colors">
-          <Instagram className="w-5 h-5 text-pink-500" />
+          <InstagramIcon className="w-5 h-5 text-pink-500" />
           <div>
             <p className="text-sm font-semibold">Instagram</p>
             <p className="text-xs text-text-muted">@kanhas_veg</p>
